@@ -32,10 +32,10 @@ function App() {
       body: JSON.stringify({ query })
     })
     .then((response) => response.json())
-    .then((data, errors) => {
+    .then(({data, errors}) => {
       console.log(data, errors)
       if(errors) console.log(errors)
-      if(data) setLinkList(data.data.linkCollection.items)
+      if(data) setLinkList(data)
     })
   }, [])
 
@@ -53,7 +53,11 @@ function Link(props) {
 
   console.log(props)
 
-  const links = props.link;
+  const links = (props.link) ? props.link.linkCollection.items : null ;
+
+  if(!links) return(
+    <h3>Loading...</h3>
+  )
 
   return(
     <div className="links__container">
