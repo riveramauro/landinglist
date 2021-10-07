@@ -1,7 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-
 import { useEffect, useState } from 'react'
+
+import './App.css';
+import { Box, VStack } from "@chakra-ui/react";
+
 
 const { REACT_APP_CF_SPACE, REACT_APP_CF_TOKEN } = process.env;
 
@@ -41,7 +42,6 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Links</h2>
       <div>
         <Link link={linkList} />
       </div>  
@@ -60,13 +60,13 @@ function Link(props) {
   )
 
   return(
-    <div className="links__container">
-        {links && links.map(link => (
-          <div className="links_link">
+    <VStack>
+        {links && links.map((link, index) => (
+          <Box p="8" minWidth="500px" shadow="md" borderRadius="10" key={index} >
             <a href={link.url}>{link.title}</a>
-          </div>
+          </Box>
         ))}
-    </div>
+    </VStack>
   )
 }
 
