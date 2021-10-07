@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
+import LinkList from "./components/linkList";
 
 import './App.css';
-import { Box, VStack } from "@chakra-ui/react";
-
 
 const { REACT_APP_CF_SPACE, REACT_APP_CF_TOKEN } = process.env;
 
@@ -43,31 +42,10 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Link link={linkList} />
+        <LinkList link={linkList} />
       </div>  
     </div>
   );
-}
-
-function Link(props) {
-
-  console.log(props)
-
-  const links = (props.link) ? props.link.linkCollection.items : null ;
-
-  if(!links) return(
-    <h3>Loading...</h3>
-  )
-
-  return(
-    <VStack>
-        {links && links.map((link, index) => (
-          <Box p="8" minWidth="500px" shadow="md" borderRadius="10" key={index} >
-            <a href={link.url}>{link.title}</a>
-          </Box>
-        ))}
-    </VStack>
-  )
 }
 
 export default App;
