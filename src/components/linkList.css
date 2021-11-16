@@ -1,0 +1,18 @@
+.link__container {
+  border: 2px solid #1D2E70;
+  text-align: center;
+  background: #c9dee4;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #1D2E70;
+  transition: ease all 0.5s;
+}
+.link__container:first-child {
+  background: #FF9A00;
+}
+.link__container:first-child:hover {
+  background: #ff9900a8;
+}
+.link__container:hover {
+  background: #c9dee4bd;
+}

@@ -1,10 +1,9 @@
 import { Box, VStack } from "@chakra-ui/react";
+import './linkList.css';
 
 function LinkList(props) {
 
-  console.log(props)
-
-  const links = (props.link) ? props.link.linkCollection.items : null ;
+  const links = (props.link) ? props.link : null ;
 
   if(!links) return(
     <h3>Loading...</h3>
@@ -13,8 +12,8 @@ function LinkList(props) {
   return(
     <VStack>
         {links && links.map((link, index) => (
-          <Box p="8" minWidth="500px" shadow="md" borderRadius="10" key={index} >
-            <a href={link.url}>{link.title}</a>
+          <Box className="link__container" as="a" href={link.url} target="_blank" p="8" w="100%" shadow="md" borderRadius="10" key={index} >
+            {link.title}
           </Box>
         ))}
     </VStack>

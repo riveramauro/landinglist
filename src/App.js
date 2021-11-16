@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react'
 import LinkList from "./components/linkList";
 
-import './App.css';
-
 const { REACT_APP_CF_SPACE, REACT_APP_CF_TOKEN } = process.env;
 
 const query = `
-query {
-  linkCollection (where: {
-   enableField: true
-  } ) {
-    items {
-      title,
-      url,
-      enableField
+query{
+  linkList(id: "7HhMcgjq7KWUzaieP8llOx") {
+    nameOfList,
+    linksOnListCollection {
+      total,
+      items {
+        title,
+        url,
+        enableField
+      }
     }
   }
 }`
@@ -33,9 +33,9 @@ function App() {
     })
     .then((response) => response.json())
     .then(({data, errors}) => {
-      console.log(data, errors)
+      // console.log({data}, errors)
       if(errors) console.log(errors)
-      if(data) setLinkList(data)
+      if(data) setLinkList(data.linkList.linksOnListCollection.items)
     })
   }, [])
 
