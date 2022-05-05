@@ -10,9 +10,9 @@ function LinkList(props) {
   )
 
   return(
-    <VStack>
+    <VStack spacing='1rem'>
         {links && links.map((link, index) => (
-          <Box className="link__container" as="a" href={link.url} target="_blank" p="8" w="100%" shadow="md" borderRadius="10" key={index} >
+          <Box key={index} className="link__container" as="a" href={link.url} target="_blank" p="3" w="100%" maxWidth="500px" shadow="sm" borderRadius="5" >
             {link.title}
           </Box>
         ))}

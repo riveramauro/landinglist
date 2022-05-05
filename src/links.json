@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "title": "Sample",
+      "url": "https://google.com"
+    },
+    {
+      "title": "Sample 2",
+      "url": "https://google.com"
+    },
+    {
+      "title": "Sample 3",
+      "url": "https://google.com"
+    }
+  ]
+}
