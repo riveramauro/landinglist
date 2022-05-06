@@ -7,7 +7,7 @@ import Logo from "../src/images/ssshape.svg";
 
 import samplelinkJSON from './links.json';
 
-const { REACT_APP_CF_SPACE, REACT_APP_CF_TOKEN, REACT_APP_GA_MEASUREMENT_ID } = process.env;
+const { REACT_APP_CF_SPACE, REACT_APP_CF_TOKEN, REACT_APP_CF_LISTID, REACT_APP_GA_MEASUREMENT_ID } = process.env;
 
 if (REACT_APP_GA_MEASUREMENT_ID ){  
   ReactGA.initialize(REACT_APP_GA_MEASUREMENT_ID);
@@ -15,7 +15,7 @@ if (REACT_APP_GA_MEASUREMENT_ID ){
 
 const query = `
 query{
-  linkList(id: "7HhMcgjq7KWUzaieP8llOx") {
+  linkList(id: "${REACT_APP_CF_LISTID}") {
     nameOfList,
     linksOnListCollection {
       total,
