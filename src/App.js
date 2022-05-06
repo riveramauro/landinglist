@@ -9,7 +9,9 @@ import samplelinkJSON from './links.json';
 
 const { REACT_APP_CF_SPACE, REACT_APP_CF_TOKEN, REACT_APP_GA_MEASUREMENT_ID } = process.env;
 
-ReactGA.initialize(REACT_APP_GA_MEASUREMENT_ID);
+if (REACT_APP_GA_MEASUREMENT_ID ){  
+  ReactGA.initialize(REACT_APP_GA_MEASUREMENT_ID);
+}
 
 const query = `
 query{
